@@ -3,6 +3,13 @@ const { sequelize } = require('../config/db');
 require("dotenv").config()
 
 const Enrollment = sequelize.define(process.env.ENROLLMENT, {
+  
+   enrollmentId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -42,7 +49,7 @@ const Enrollment = sequelize.define(process.env.ENROLLMENT, {
       allowNull: false,
     validate: {
       isIn: {
-        args: ['6-7AM', '7-8AM', '8-9AM', '5-6PM'],
+        args: [["6-7AM", "7-8AM", "8-9AM", "5-6PM"]],
         msg: 'Invalid batch value.',
       },
     },

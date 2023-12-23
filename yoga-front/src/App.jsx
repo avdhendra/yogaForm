@@ -3,6 +3,7 @@ import {Routes,Route} from "react-router-dom"
 import Header from "./component/Header"
 import YogaForm from "./pages/yogaForm"
 import PaymentSuccess from "./pages/PaymentSuccess"
+import NotFound from "./component/NotFound"
 function App() {
 
 
@@ -16,7 +17,8 @@ function App() {
       <Routes>
         
           <Route path="/" element={<YogaForm />} />
-          <Route path="/success" element={<PaymentSuccess/>}/>
+          <Route path="/success" element={<PaymentSuccess />} />
+          <Route path="/*" element={<NotFound />} />
       </Routes>
 
       </div>

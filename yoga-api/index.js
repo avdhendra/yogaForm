@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 app.use("/yoga",enrollRoutes)
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force:true}).then(() => {
     console.log("Database is Online")
 
     app.listen(process.env.PORT, () => {

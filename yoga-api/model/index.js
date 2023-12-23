@@ -11,8 +11,12 @@ db.enrollment = enrollment
 db.payment = payment
 
 
-db.enrollment.hasMany(db.payment);
-db.payment.belongsTo(db.enrollment);
+db.enrollment.hasMany(db.payment, {
+    foreignKey: "enrollmentId"
+});
+db.payment.belongsTo(db.enrollment, {
+    foreignKey:"enrollmentId"
+});
 
 module.exports=db
 

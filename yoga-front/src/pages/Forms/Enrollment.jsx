@@ -23,8 +23,7 @@ const Enrollment = ({ next }) => {
 
     const validationSchema = yup.object().shape({
         name: yup.string().required('Name is required'),
-        age: yup
-            .number()
+        age: yup.number()
             .required('Age is required')
             .min(18, 'Age must be at least 18 years old')
             .max(65, 'Age must be at most 65 years old'),

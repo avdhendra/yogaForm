@@ -13,7 +13,7 @@ const Stepper = ({steps,currentStep,complete}) => {
               <div key={index} className={`step-item ${currentStep===index+1 && "active"}  ${(index+1<currentStep||complete)}`}>
                   <div>{index + 1}</div>
                   <div className="step">
-              {index  < currentStep || complete ? <TiTick size={24} /> : index + 1}
+              {index < currentStep+1  ? <TiTick size={24} /> : index + 1}
             </div>
             <p className="text-gray-500">{step.level}</p>
           

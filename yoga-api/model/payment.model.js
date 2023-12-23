@@ -3,6 +3,11 @@ const { sequelize } = require('../config/db');
 require("dotenv").config()
 const Payment = sequelize.define(process.env.PAYMENT, {
   
+  paymentId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
  accountNumber: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,8 +24,14 @@ const Payment = sequelize.define(process.env.PAYMENT, {
   },
 
   cardType: {
-    type: DataTypes.ENUM('DEBIT', 'CREDIT'),
-    allowNull: false,
+    type: DataTypes.STRING,
+      allowNull: false,
+    validate: {
+      isIn: {
+        args: [["DEBIT", "CREDIT"]],
+        msg: 'Invalid Card Type',
+      },
+    },
   },
 
   cardValidDate: {
